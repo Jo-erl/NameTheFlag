@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-EDGE" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="keywords" content="html, css, javascript" />
+    <meta name="author" content="Joel Anang" />
+    <title>Name The Flag</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+
+</head>
+<body oncontextmenu="return false">
+    <div class="container">
+        <h1 class="center-text">Name The Flag</h1>
+        <p class="center-text">Get to know flags from every country across the globe!
+
+
+
+
+        </p>
+        <div class="game-container">
+            <div class="flag-container">
+                <img id="flag" src="" alt="Flag">
+            </div>
+            <div id="hint">Capital:</span> , Continent:</div>
+
+            <div id="score">Score: 0</div>
+            <div class="message"></div>
+            <div id="options">
+                <button class="option" onclick="checkAnswer(this)">Option 1</button>
+                <button class="option" onclick="checkAnswer(this)">Option 2</button>
+                <button class="option" onclick="checkAnswer(this)">Option 3</button>
+            </div>
+            <button id="play-again" onclick="playAgain()" style="display: none;">
+                <img src="repeat.png" alt="Play Again" width="40" height="40">
+            </button>
+        </div>
+    </div>
+
+    <!--Footer-->
+<section class="footer">
+
+    <p>All Rights Reserved &copy; <span id="currentYear"></span> <a href="https://jo-erl.github.io/joelanangportfolio/" style="color: rgb(0, 255, 68);" target="_blank">JoErl</a></p>
+  
+    <script>
+      // JavaScript to automatically update the year
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+  </section>
+  <!--End of Footer-->
+
+    <script src="script.js"></script>
+</body>
+</html>
