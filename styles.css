@@ -27,11 +27,6 @@ body {
 
 }
 
-.center-text {
-  text-align: center;
-  margin: 10px 0;
-}
-
 .game-container {
   background-color: #fff;
   border-radius: 8px;
@@ -111,6 +106,46 @@ body {
   position: relative;
 }
 
+.new-content {
+  background-color: #fff;
+  color: #3c3c3c;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: justify;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 800px; 
+  width: 100%;
+  margin-top: 10px; 
+  margin-bottom: 40px;
+}
+.new-content b{
+  font-size: 20px;
+  color: #650000;
+}
+
+.new-content span{
+  font-size: 20px;
+  background: linear-gradient(to right, red, gold, green);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+font-weight: bold;
+}
+
+.content {
+  background-color: #000000;
+  color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 800px; 
+  width: 100%;
+  margin-top: 20px; 
+  margin-bottom: 20px;
+}
+
+
 .footer {
   width: 100%;
   text-align: center;
@@ -125,3 +160,25 @@ body {
 .footer p {
   color: #aaaaaa;
 }
+
+
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: none;
+
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#back-to-top img{
+ width: 45px;
+ height: auto;
+ border-radius: 50px;
+ box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
