@@ -1148,7 +1148,7 @@ wrongAnswers:     ['Switzerland', 'Austria'],
     },
 
  { 
-    flagPath: 'flags/Republic of the Congo.jpg',
+    flagPath: 'flags/Republic_of_the_Congo.jpg',
     capital: 'Brazzaville',
     continent: 'Africa',
     correctAnswer: 'Republic_of_the_Congo',
@@ -1260,7 +1260,7 @@ wrongAnswers:     ['Switzerland', 'Austria'],
     },
 
 { 
-    flagPath: 'flags/Sierra Leone.jpg',
+    flagPath: 'flags/Sierra_Leone.jpg',
     capital: 'Freetown',
     continent: 'Africa',
     correctAnswer: 'Sierra Leone',
