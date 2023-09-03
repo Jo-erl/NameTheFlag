@@ -556,7 +556,7 @@ const flags = [
 },
 
 {
-    flagPath: 'flags/Guinea-Bissau.jpg',
+    flagPath: 'flags/Guinea_Bissau.jpg',
     capital: 'Bissau',
     continent: 'Africa',
     correctAnswer: 'Guinea-Bissau',
@@ -743,7 +743,7 @@ wrongAnswers:      ['Serbia', 'Albania'],
 flagPath: 'flags/Kuwait.jpg',
 capital: 'Kuwait City',
 continent: 'Oceania',
-correctAnswer: 'Asia',
+correctAnswer: 'Kuwait',
 wrongAnswers:     ['Saudi Arabia', 'Iraq'],
 },
 
@@ -1004,7 +1004,7 @@ wrongAnswers:     ['Switzerland', 'Austria'],
     },
 
 { 
-    flagPath: 'flags/New_Zealand:.jpg',
+    flagPath: 'flags/New_Zealand.jpg',
     capital: 'Wellington',
     continent: 'Oceania',
     correctAnswer: 'New Zealand:',
@@ -1148,7 +1148,7 @@ wrongAnswers:     ['Switzerland', 'Austria'],
     },
 
  { 
-    flagPath: 'flags/Republic_of_the_Congo.jpg',
+    flagPath: 'flags/Republic of the Congo.jpg',
     capital: 'Brazzaville',
     continent: 'Africa',
     correctAnswer: 'Republic_of_the_Congo',
@@ -1367,7 +1367,7 @@ wrongAnswers:     ['Switzerland', 'Austria'],
     flagPath: 'flags/Switzerland.jpg',
     capital: 'Bern',
     continent: 'Africa',
-    correctAnswer: 'Europe',
+    correctAnswer: 'Switzerland',
     wrongAnswers:       ['France', 'Italy'],
     },
 
@@ -1620,7 +1620,6 @@ function checkAnswer(button) {
 
     if (selectedAnswer === flag.correctAnswer) {
         score++;
-        document.getElementById('score').textContent = `Score: ${score}`;
         hintElement.textContent = 'Correct!';
         hintElement.style.color = 'green'; // Set text color to green for correct answer
     } else {
@@ -1629,12 +1628,18 @@ function checkAnswer(button) {
     }
 
     currentFlagIndex++;
+
+    // Update the score display
+    const totalFlags = flags.length;
+    document.getElementById('score').textContent = `Score: ${score} / ${totalFlags}`;
+
     setTimeout(() => {
         hintElement.textContent = ''; // Clear the message
         hintElement.style.color = ''; // Reset text color
         loadFlag();
-    }, 1600); 
+    }, 1600);
 }
+
 
 function showMessage(message, color) {
     const messageElement = document.getElementById('hint');
