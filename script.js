@@ -1598,6 +1598,10 @@ function shuffleFlags() {
     shuffleArray(shuffledFlags); // Shuffle the flags array
 }
 
+function updateTotalFlags() {
+    const totalFlags = flags.length;
+    document.getElementById('total-flags').textContent = `Total: ${currentFlagIndex + 1} / ${totalFlags}`;
+}
 
 function loadFlag() {
     if (currentFlagIndex < shuffledFlags.length) {
@@ -1608,6 +1612,9 @@ function loadFlag() {
         options.forEach((option, index) => {
             document.getElementsByClassName('option')[index].textContent = option;
         });
+
+        // Update the total flag count
+        updateTotalFlags();
     } else {
         endGame();
     }
@@ -1640,13 +1647,6 @@ function checkAnswer(button) {
     }, 1600);
 }
 
-
-function showMessage(message, color) {
-    const messageElement = document.getElementById('hint');
-    messageElement.textContent = message;
-    messageElement.style.color = color;
-}
-
 function startGame() {
     currentFlagIndex = 0;
     score = 0;
@@ -1660,12 +1660,9 @@ function startGame() {
     loadFlag(); // Load the first flag
 }
 
-window.onload = startGame;
-
-
 function endGame() {
     const totalFlags = flags.length;
-    const scoreText = `Score: ${score} /  ${totalFlags}`;
+    const scoreText = `Score: ${score} / ${totalFlags}`;
     document.getElementById('hint').textContent = 'Game Over!';
     document.getElementById('score').textContent = scoreText;
     document.getElementById('flag').style.display = 'none'; // Hide the flag
@@ -1686,10 +1683,10 @@ function playAgain() {
     loadFlag(); // Load the first flag
 }
 
-
-
-function showMessage(message) {
-    document.getElementById('hint').textContent = message;
+// Initialize the total flag count on window load
+window.onload = function () {
+    updateTotalFlags();
+    startGame();
 }
 
 document.getElementById('play-again').style.display = 'none'; // Hide the Play Again button initially
