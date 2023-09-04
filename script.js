@@ -543,7 +543,7 @@ const flags = [
     flagPath: 'flags/Guatemala.jpg',
     capital: 'Guatemala City',
     continent: 'North America',
-    correctAnswer: 'France',
+    correctAnswer: 'Guatemala',
     wrongAnswers:    ['Mexico', 'Belize'],
 },
 
@@ -1007,7 +1007,7 @@ wrongAnswers:     ['Switzerland', 'Austria'],
     flagPath: 'flags/New_Zealand.jpg',
     capital: 'Wellington',
     continent: 'Oceania',
-    correctAnswer: 'New Zealand:',
+    correctAnswer: 'New Zealand',
     wrongAnswers:     ['Australia', 'Fiji'],
     },
 
@@ -1148,10 +1148,10 @@ wrongAnswers:     ['Switzerland', 'Austria'],
     },
 
  { 
-    flagPath: 'flags/Republic of the Congo.jpg',
+    flagPath: 'flags/Republic_of_the_Congo.jpg',
     capital: 'Brazzaville',
     continent: 'Africa',
-    correctAnswer: 'Republic_of_the_Congo',
+    correctAnswer: 'Republic of the Congo',
     wrongAnswers:     ['Gabon', 'Democratic Republic of the Congo'],
     },
 
