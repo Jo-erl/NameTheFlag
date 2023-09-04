@@ -966,7 +966,7 @@ wrongAnswers:     ['Switzerland', 'Austria'],
 { 
     flagPath: 'flags/Myanmar.jpg',
     capital: 'Naypyidaw',
-    continent: 'Africa',
+    continent: '	Asia',
     correctAnswer: 'Myanmar',
     wrongAnswers:     ['India', 'China'],
     },
