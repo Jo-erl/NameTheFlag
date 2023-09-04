@@ -83,8 +83,8 @@ const flags = [
 
 {
         flagPath: 'flags/Azerbaijan.jpg',
-        capital: 'Canberra',
-        continent: 'Oceania',
+        capital: 'Baku',
+        continent: 'Asia',
         correctAnswer: 'Azerbaijan',
         wrongAnswers: ['Georgia', 'Armenia'],
     },
