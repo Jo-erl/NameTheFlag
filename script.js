@@ -1014,7 +1014,7 @@ wrongAnswers:     ['Switzerland', 'Austria'],
 { 
     flagPath: 'flags/Nicaragua.jpg',
     capital: 'Managua',
-    continent: 'America',
+    continent: 'North America',
     correctAnswer: 'Nicaragua',
     wrongAnswers:     ['Honduras', 'Costa Rica'],
     },
