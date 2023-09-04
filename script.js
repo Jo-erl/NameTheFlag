@@ -413,7 +413,7 @@ const flags = [
 
 {
     flagPath: 'flags/El_Salvador.jpg',
-    capital: 'Quito',
+    capital: '	San Salvador',
     continent: 'North America',
     correctAnswer: 'El Salvador',
     wrongAnswers:   ['Guatemala', 'Honduras'],
