@@ -18,6 +18,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none; /* For Firefox */
 }
 
 .container {
@@ -76,8 +79,6 @@ body {
   font-weight: bold;
   margin: 10px 0;
 }
-
-
 
 .option {
   background-color: #0d0d0d;
