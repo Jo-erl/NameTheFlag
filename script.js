@@ -1366,7 +1366,7 @@ wrongAnswers:     ['Switzerland', 'Austria'],
 { 
     flagPath: 'flags/Switzerland.jpg',
     capital: 'Bern',
-    continent: 'Africa',
+    continent: 'Europe',
     correctAnswer: 'Switzerland',
     wrongAnswers:       ['France', 'Italy'],
     },
