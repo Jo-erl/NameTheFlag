@@ -1600,7 +1600,7 @@ function shuffleFlags() {
 
 function updateTotalFlags() {
     const totalFlags = flags.length;
-    document.getElementById('total-flags').textContent = `Total: ${currentFlagIndex + 1} / ${totalFlags}`;
+    document.getElementById('total-flags').textContent = `Flag: ${currentFlagIndex + 1} / ${totalFlags}`;
 }
 
 function loadFlag() {
