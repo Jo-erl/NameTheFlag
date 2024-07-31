@@ -1,175 +1,347 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE-EDGE" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no shrink-to-fit=no"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
     />
     <meta name="description" content="" />
     <meta name="keywords" content="html, css, javascript" />
     <meta name="author" content="Joel Anang" />
     <title>Name The Flag</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="icon" href="favicon.png" type="image/x-icon" />
-
-</head>
-<body oncontextmenu="return false">
+  </head>
+  <body oncontextmenu="return false">
     <div class="container">
+      <div class="content">
+        <h1>
+          <img
+            src="logo.png"
+            alt="General Knowledge Icon"
+            style="width: 50px; height: auto; vertical-align: middle"
+          />
+          Name The Flag
+        </h1>
+      </div>
+      <!--=======================================================-->
+      <div class="game-container">
+        <div class="flag-container">
+          <img id="flag" src=" " alt="Flag" />
+        </div>
+        <div id="hint">Capital: <span></span>, Continent:</div>
+        <div id="options">
+          <button class="option" onclick="checkAnswer(this)">Option 1</button>
+          <button class="option" onclick="checkAnswer(this)">Option 2</button>
+          <button class="option" onclick="checkAnswer(this)">Option 3</button>
+        </div>
+        <div id="score">Score: 0</div>
+        <div id="total-flags">Flag: 0 / 0</div>
+        <div class="message"></div>
+        <button id="play-again" onclick="playAgain()" style="display: none">
+          <img src="repeat.png" alt="Play Again" width="40" height="40" />
+        </button>
+      </div>
+      <!--=======================================================-->
+      <div class="content">
+        <h1>How Many Countries Are There in the World?</h1>
+      </div>
+      <!--=======================================================-->
+      <div class="new-content">
+        <p>
+          The United Nations has
+          <span class="general-emphasis">193</span> member nations along with
+          the recognition of two independent nations namely Vatican City and
+          Palestine.
+        </p>
+        <!--=======================================================-->
+        <p>
+          When you include Taiwan and Kosovo, the total count becomes
+          <span class="general-emphasis">197</span>. Some individuals prefer to
+          add regions like Western Sahara and Somaliland, which have uncertain
+          or not universally recognized status, to round the number to
+          <span class="general-emphasis">200</span>. The classification of what
+          constitutes a "country" can vary depending on the criteria used.
+        </p>
+      </div>
+      <!--=======================================================-->
+      <main>
         <div class="content">
-            <h1>
-                <img src="logo.png" alt="General Knowledge Icon" style="width:50px; height:auto; vertical-align: middle;" /> Name The Flag
-              </h1>        
+          <h1>In Alphabetical Order</h1>
         </div>
-        
-        <div class="game-container">
-            <div class="flag-container">
-                <img id="flag" src="" alt="Flag">
-            </div>
-            <div id="hint">Capital:</span> , Continent:</div>
-            <!-- Display the total flag count -->
-    
-            <div id="options">
-                <button class="option" onclick="checkAnswer(this)">Option 1</button>
-                <button class="option" onclick="checkAnswer(this)">Option 2</button>
-                <button class="option" onclick="checkAnswer(this)">Option 3</button>
-            </div>
-            <div id="score">Score: 0</div>
-            <div id="total-flags">Flag: 0 / 0</div>
-            <div class="message"></div>
-            
-            <button id="play-again" onclick="playAgain()" style="display: none;">
-                <img src="repeat.png" alt="Play Again" width="40" height="40">
-            </button>
-        </div>
-        <div class="content">
-            <h1>How Many Countries Are There in the World?
-            </h1>
-        </div>
-
         <div class="new-content">
-            <p>The United Nations comprises 193 member nations along with the recognition of two independent nations, namely Vatican City and Palestine.<br><br>
-            
-            The United Nations has <b>193</b> full members along with <b>2</b> observers, and when you include Taiwan and Kosovo, the total count becomes <b>197</b>. Some individuals prefer to add regions like Western Sahara and Somaliland, which have uncertain or not universally recognized status, to round the number to 200. The classification of what constitutes a "country" can vary depending on the criteria used.
-            </p>
+          <p>
+            <span class="general-emphasis">A:</span> Afghanistan, Albania,
+            Algeria, Andorra, Angola, Antigua and Barbuda, Argentina, Armenia,
+            Australia, Austria, Azerbaijan
+          </p>
+          <p>
+            <span class="general-emphasis">B:</span> Bahamas, Bahrain,
+            Bangladesh, Barbados, Belarus, Belgium, Belize, Benin, Bhutan,
+            Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria,
+            Burkina Faso, Burundi
+          </p>
+          <p>
+            <span class="general-emphasis">C:</span> Cambodia, Cameroon, Canada,
+            Cape Verde, Central African Republic, Chad, Chile, China, Colombia,
+            Comoros, Costa Rica, Croatia, Cuba, Cyprus, Czech Republic
+          </p>
+          <p>
+            <span class="general-emphasis">D:</span> Democratic Republic of
+            Congo, Denmark, Djibouti, Dominica, Dominican Republic
+          </p>
+          <p>
+            <span class="general-emphasis">E:</span> East Timor, Ecuador, Egypt,
+            El Salvador, Equatorial Guinea, Eritrea, Estonia, Eswatini, Ethiopia
+          </p>
+          <p><span class="general-emphasis">F:</span> Fiji, Finland, France</p>
+          <p>
+            <span class="general-emphasis">G:</span> Gabon, Gambia, Georgia,
+            Germany, <span>Ghana</span>, Greece, Grenada, Guatemala,
+            Guinea-Conakry, Guinea-Bissau, Guyana
+          </p>
+          <p>
+            <span class="general-emphasis">H:</span> Haiti, Honduras, Hungary
+          </p>
+          <p>
+            <span class="general-emphasis">I:</span> Iceland, India, Indonesia,
+            Iran, Iraq, Ireland, Israel, Italy, Ivory Coast
+          </p>
+          <p><span class="general-emphasis">J:</span> Jamaica, Japan, Jordan</p>
+          <p>
+            <span class="general-emphasis">K:</span> Kazakhstan, Kenya,
+            Kiribati, Korea, North, Korea, South, Kosovo, Kuwait, Kyrgyzstan
+          </p>
+          <p>
+            <span class="general-emphasis">L:</span> Laos, Latvia, Lebanon,
+            Lesotho, Liberia, Libya, Liechtenstein, Lithuania, Luxembourg
+          </p>
+          <p>
+            <span class="general-emphasis">M:</span> Madagascar, Malawi,
+            Malaysia, Maldives, Mali, Malta, Marshall Islands, Mauritania,
+            Mauritius, Mexico, Micronesia, Moldova, Monaco, Mongolia,
+            Montenegro, Morocco, Mozambique, Myanmar
+          </p>
+          <p>
+            <span class="general-emphasis">N:</span> Namibia, Nauru, Nepal,
+            Netherlands, New Zealand, Nicaragua, Niger, Nigeria, North
+            Macedonia, Norway
+          </p>
+          <p><span class="general-emphasis">O:</span> Oman</p>
+          <p>
+            <span class="general-emphasis">P:</span> Pakistan, Palau, Palestine,
+            Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland,
+            Portugal
+          </p>
+          <p><span class="general-emphasis">Q:</span> Qatar</p>
+          <p>
+            <span class="general-emphasis">R:</span> Republic of the Congo,
+            Romania, Russia, Rwanda
+          </p>
+          <p>
+            <span class="general-emphasis">S:</span> Saint Kitts and Nevis,
+            Saint Lucia, Saint Vincent and the Grenadines, Samoa, San Marino,
+            São Tomé and Príncipe, Saudi Arabia, Senegal, Serbia, Seychelles,
+            Sierra Leone, Singapore, Slovakia, Slovenia, Solomon Islands,
+            Somalia, South Africa, South Sudan, Spain, Sri Lanka, Sudan,
+            Suriname, Sweden, Switzerland,
+          </p>
+          <p>
+            <span class="general-emphasis">T:</span> Taiwan, Tajikistan,
+            Tanzania, Thailand, Togo, Tonga, Trinidad and Tobago, Tunisia,
+            Turkey, Turkmenistan, Tuvalu
+          </p>
+          <p>
+            <span class="general-emphasis">U:</span> Uganda, Ukraine, United
+            Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan
+          </p>
+          <p>
+            <span class="general-emphasis">V:</span> Vanuatu, Vatican City,
+            Venezuela, Vietnam
+          </p>
+          <p><span class="general-emphasis">Y:</span> Yemen</p>
+          <p><span class="general-emphasis">Z:</span> Zambia, Zimbabwe</p>
         </div>
-
+        <!--=======================================================-->
         <div class="content">
-            <h1>In Alphabetical Order
-            </h1>
+          <h1>How Many Continents Are There in the World?</h1>
         </div>
-
+        <!--=======================================================-->
         <div class="new-content">
-            <p><b>A:</b> Afghanistan, Albania, Algeria, Andorra, Angola, Antigua and Barbuda, Argentina, Armenia, Australia, Austria, Azerbaijan<br><br>
-            <p><b>B:</b> Bahamas, Bahrain, Bangladesh, Barbados, Belarus, Belgium, Belize, Benin, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Burkina Faso, Burundi
-                <br><br>
-            <p><b>C:</b> Cambodia, Cameroon, Canada, Cape Verde, Central African Republic, Chad, Chile, China, Colombia, Comoros, Costa Rica, Croatia, Cuba, Cyprus, Czech Republic
-                <br><br>
-            <p><b>D:</b> Democratic Republic of Congo, Denmark, Djibouti, Dominica, Dominican Republic<br><br>
-            <p><b>E:</b> AEast Timor, Ecuador, Egypt, El Salvador, Equatorial Guinea, Eritrea, Estonia, Eswatini, Ethiopia
-            <br><br>
-            <p><b>F:</b> Fiji, Finland, France<br><br>
-            <p><b>G:</b> Gabon, Gambia, Georgia, Germany, <span>Ghana</span>, Greece, Grenada, Guatemala, Guinea-Conakry, Guinea-Bissau, Guyana<br><br>
-            <p><b>H:</b> Haiti, Honduras, Hungary<br><br>
-            <p><b>I:</b> Iceland, India, Indonesia, Iran, Iraq, Ireland, Israel, Italy, Ivory Coast<br><br>
-            <p><b>J:</b> Jamaica, Japan, Jordan <br><br>
-            <p><b>K:</b> Kazakhstan, Kenya, Kiribati, Korea, North, Korea, South, Kosovo, Kuwait, Kyrgyzstan
-                <br><br>
-            <p><b>L:</b> Laos, Latvia, Lebanon, Lesotho, Liberia, Libya, Liechtenstein, Lithuania, Luxembourg
-                <br><br>
-            <p><b>M:</b> Madagascar, Malawi, Malaysia, Maldives, Mali, Malta, Marshall Islands, Mauritania, Mauritius, Mexico, Micronesia, Moldova, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Myanmar<br><br>
-            <p><b>N:</b> Namibia, Nauru, Nepal, Netherlands, New Zealand, Nicaragua, Niger, Nigeria, North Macedonia, Norway<br><br>
-            <p><b>O:</b> Oman<br><br>
-            <p><b>P:</b> Pakistan, Palau, Palestine, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal
-                <br><br>
-            <p><b>Q:</b> Qatar<br><br>
-            <p><b>R:</b> Republic of the Congo, Romania, Russia, Rwanda<br><br>
-            <p><b>S:</b> Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the Grenadines, Samoa, San Marino, São Tomé and Príncipe, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, Solomon Islands, Somalia, South Africa, South Sudan, Spain, Sri Lanka, Sudan, Suriname, Sweden, Switzerland, Syria.<br><br>
-            <p><b>T:</b> Taiwan, Tajikistan, Tanzania, Thailand, Togo, Tonga, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Tuvalu<br><br>
-            <p><b>U:</b> Uganda, Ukraine, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistanbr<br><br>
-            <p><b>V:</b> Vanuatu, Vatican City, Venezuela, Vietnam<br><br>
-            <p><b>Y:</b> Yemen<br><br>
-            <p><b>Z:</b> Zambia, Zimbabwe<br><br>
-            </p>
+          <p>
+            A continent is a vast, uninterrupted expanse of land typically seen
+            as a unified geographical area. There are a total of
+            <span class="general-emphasis">seven(7)</span> continents, namely
+            <span class="general-emphasis"
+              >Asia, Africa, North America, South America, Antarctica, Europe,
+              and Australia</span
+            >, listed in order of size from largest to smallest. On occasion,
+            Europe and Asia are combined into a single continent known as
+            <span class="general-emphasis">Eurasia</span>.
+          </p>
+          <!--=======================================================-->
+          <p>
+            Continents generally align with the locations of tectonic plates to
+            some extent. There is significant diversity in the sizes of
+            continents. For instance, Asia surpasses Australia in size by more
+            than fivefold. Greenland, the world's largest island, is
+            approximately just a quarter of the size of Australia. The
+            continents exhibit distinct levels of compactness. Africa boasts the
+            most uniform coastline, resulting in the lowest proportion of
+            coastline relative to its total area.
+          </p>
+          <!--=======================================================-->
+          <p>
+            In contrast, Europe stands out as the most irregular and indented
+            continent, with by far the highest ratio of coastline compared to
+            its total area.
+          </p>
+          <!--=======================================================-->
+          <p>
+            There are <span class="general-emphasis">49</span> countries in
+            <span class="general-emphasis">Asia</span>, including several
+            countries like Russia, Turkey, and Georgia, that are geographically
+            located in both Asia and Europe, and are often considered part of
+            Europe as well.
+          </p>
+          <!--=======================================================-->
+          <p>
+            There are <span class="general-emphasis">54</span> countries in
+            <span class="general-emphasis">Africa</span>, making it the
+            continent with the highest number of countries.
+          </p>
+          <!--=======================================================-->
+          <p>
+            There are
+            <span class="general-emphasis">23</span> countries in
+            <span class="general-emphasis">North America</span>, including
+            <span class="general-emphasis">7</span> countries that are part of
+            <span class="general-emphasis">Central America</span>.
+          </p>
+          <!--=======================================================-->
+          <p>
+            There are
+            <span class="general-emphasis">12</span> countries in
+            <span class="general-emphasis">South America</span>, each with its
+            own unique culture and history.
+          </p>
+          <!--=======================================================-->
+          <p>
+            There are
+            <span class="general-emphasis">44</span> countries in
+            <span class="general-emphasis">Europe</span>, including
+            <span class="general-emphasis">27</span> countries that are part of
+            the <span class="general-emphasis">European Union</span>.
+          </p>
         </div>
-
-        <div class="content">
-            <h1>How Many Continents Are There in the World?
-            </h1>
-        </div>
-
-        <div class="new-content">
-            <p>A continent is a vast, uninterrupted expanse of land typically seen as a unified geographical area. There are a total of <b>seven(7)</b> continents, namely <b>Asia, Africa, North America, South America, Antarctica, Europe, and Australia</b>, listed in order of size from largest to smallest. On occasion, Europe and Asia are combined into a single continent known as Eurasia. Continents generally align with the locations of tectonic plates to some extent.<br><br>
-            
-                There is significant diversity in the sizes of continents. For instance, Asia surpasses Australia in size by more than fivefold. Greenland, the world's largest island, is approximately just a quarter of the size of Australia. The continents exhibit distinct levels of compactness. Africa boasts the most uniform coastline, resulting in the lowest proportion of coastline relative to its total area. In contrast, Europe stands out as the most irregular and indented continent, with by far the highest ratio of coastline compared to its total area.<br><br>
-
-                There are <b>49</b> countries in <b>Asia</b>, including several countries like Russia, Turkey, and Georgia, that are geographically located in both Asia and Europe, and are often considered part of Europe as well.<br><br>
-                
-
-                There are <b>54</b> countries in <b>Africa</b>, making it the continent with the highest number of countries.
-                <br><br>
-
-                There are <b>23</b> countries in <b>North America</b>, including 7 countries that are part of Central America.<br><br>
-
-                There are  <b>12</b> countries in  <b>South America</b>, each with its own unique culture and history.<br><br>
-
-                There are <b>44</b> countries in <b>Europe</b>, including 27 countries that are part of the European Union.
-            </p>     
-        </div>
+      </main>
     </div>
-    </div>
-
-
-    
-
+    <!--=======================================================-->
     <!--Footer-->
-<section class="footer">
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="logo">
+          <a href="#">Joel Anang<span>.</span></a>
+        </div>
+        <p class="copyright">
+          Copyright &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          All rights reserved
+        </p>
+      </div>
+    </footer>
+    <!--Footer end-->
+    <!--=======================================================-->
 
-    <p>All Rights Reserved &copy; <span id="currentYear"></span> <a href="https://jo-erl.github.io/joelanangportfolio/" style="color: rgb(0, 255, 68);" target="_blank">JoErl</a></p>
-  
-    <script>
-      // JavaScript to automatically update the year
-      document.getElementById("currentYear").textContent = new Date().getFullYear();
-    </script>
-  </section>
-  <!--End of Footer-->
-
-    <script src="script.js"></script>
-
-    <!--Back tob top-->
+    <!-- Back to top -->
     <a id="back-to-top" href="#" onclick="scrollToTop()">
-        <img src="back_to_top.png" alt="Back to Top">
+      <img src="back_to_top.png" alt="Back to Top" />
     </a>
+    <!--=======================================================-->
 
     <script>
-// Get the "Back to Top" button element
-const backToTopButton = document.getElementById('back-to-top');
+      // Footer functionality
+      const footer = document.querySelector("footer");
+      const currentYearSpan = document.querySelector(".current-year");
 
-// Function to toggle the button's visibility based on scroll position
-function toggleBackToTopButton() {
-    if (window.scrollY > 200) { // Adjust the scroll position at which the button appears
-        backToTopButton.style.display = 'block';
-    } else {
-        backToTopButton.style.display = 'none';
-    }
-}
+      // Set the current year in the footer
+      if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+      }
 
-// Function to scroll to the top when the button is clicked
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
+      function handleScroll() {
+        // Footer reveal animation
+        const footerRect = footer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-// Add a scroll event listener to toggle the button's visibility
-window.addEventListener('scroll', toggleBackToTopButton);
+        if (footerRect.bottom <= windowHeight + 100) {
+          footer.classList.add("reveal");
+        } else {
+          footer.classList.remove("reveal");
+        }
 
-// Initially hide the button on page load
-backToTopButton.style.display = 'none';
+        // Footer parallax effect
+        const scrollPosition = window.pageYOffset;
+        const parallaxOffset = scrollPosition * 0.3;
+        footer.style.backgroundPositionY = `${parallaxOffset}px`;
+      }
 
+      window.addEventListener("scroll", handleScroll);
+      handleScroll();
+
+      //=========================================================//
+      // Back to top functionality
+      function scrollToTop(event) {
+        // Prevent the default anchor behavior
+        event.preventDefault();
+
+        // Get the current scroll position
+        const startPosition = window.pageYOffset;
+        const startTime = performance.now();
+
+        function scrollStep(timestamp) {
+          const currentTime = timestamp - startTime;
+          const progress = Math.min(currentTime / 150, 1); // 150ms duration
+
+          window.scrollTo(0, startPosition * (1 - easeOutCubic(progress)));
+
+          if (progress < 1) {
+            requestAnimationFrame(scrollStep);
+          }
+        }
+
+        requestAnimationFrame(scrollStep);
+      }
+
+      // Easing function for smoother animation
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+
+      // Show or hide the button based on scroll position
+      window.addEventListener("scroll", function () {
+        const backToTopButton = document.getElementById("back-to-top");
+        if (window.pageYOffset > 300) {
+          backToTopButton.style.display = "block";
+        } else {
+          backToTopButton.style.display = "none";
+        }
+      });
+
+      // Attach the event listener to the button
+      document
+        .getElementById("back-to-top")
+        .addEventListener("click", scrollToTop);
+      //=========================================================//
     </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
