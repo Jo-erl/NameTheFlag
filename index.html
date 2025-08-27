@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Name The Flag Web Game</title>
+    <meta name="description"
+        content="Guess the country's flag. 197 UN-recognized countries. Progress and score saved locally so you can resume anytime." />
+    <link rel="preconnect" href="https://restcountries.com" crossorigin>
+    <meta name="robots" content="index, follow">
+    <!-- ALTERNATIVES: NOINDEX, NOFOLLOW, NOARCHIVE, ETC. -->
+    <link rel="canonical" href="https://quode.pages.com"">
+        <meta name=" language" content="English">
+    <meta name="geo.region" content="GH">
+    <meta name="geo.placename" content="Accra">
+    <meta name="author" content="JoErl">
+    <meta name="keywords"
+        content="web development, web design, game, custom websites, flag game, web game, globe, world, web studio, frontend development, responsive design">
+    <link rel="icon"
+        href="https://res.cloudinary.com/dkds78kb3/image/upload/v1756298876/android-chrome-192x192_yiugza.png" />
+    <!-- OPEN GRAPH / SOCIAL MEDIA -->
+    <meta property="og:title" content="Quode Palette | Web Development Studio">
+    <meta property="og:description"
+        content="Guess the country's flag. 197 UN-recognized countries. Progress and score saved locally so you can resume anytime.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="Name The Flag">
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="wrap" id="app" hidden>
+        <header>
+            <h1>🌍 Name The Flag</h1> <span class="badge" id="progressBadge"
+                title="Your progress is saved to this device.">Progress: <strong id="badgeProgress"
+                    style="color:var(--text)">0%</strong></span>
+            <div class="toolbar"> <button class="btn secondary" id="btnSkip" title="Skip question (no penalty)"><span>⏭
+                        Skip</span></button> <button class="btn ghost" id="btnReview" title="Review mistakes">🧠
+                    Review</button> <label class="toggle" id="themeToggle" title="Toggle light / dark"> <input 
+                        type="checkbox" /> <span class="theme-text">Theme</span><span class="dot"></span> </label> <button class="btn warning"
+                    id="btnReset" title="Reset all progress">Reset</button> </div>
+        </header>
+    
+    <dialog id="resetDialog">
+        <form method="dialog" style="text-align:center; padding:1rem;">
+            <p>Reset all progress?</p>
+            <menu style="margin-top:1rem;">
+                <button class="btn ghost" value="cancel">Cancel</button>
+                <button class="btn warning" id="btnConfirmReset" value="ok" class="warning">Reset</button>
+            </menu>
+        </form>
+    </dialog>
+
+        <div class="layout">
+            <section class="card flagStage">
+                <div class="meta">
+                    <div>
+                        <div class="progress" aria-label="Flag progress"><span id="progressBar"></span></div>
+                    </div>
+                    <div class="metaRight">
+                        <span class="badge" title="Correct answers / Questions answered">Score: <strong id="scoreLine"
+                                style="color:var(--text)">0 / 0</strong></span>
+                        <span class="badge" title="Current flag index / Total flags"><span id="flagIndex">0</span> of
+                            <span id="flagTotal">0</span></span>
+                    </div>
+                </div>
+
+                <div class="flagBox" id="flagBox">
+                    <img id="flagImg" alt="Country flag" src="" />
+                    <div class="flagLabel" id="flagLabel">Guess the country</div>
+                </div>
+
+                <div class="choices" id="choices"></div>
+            </section>
+
+            <aside class="panel card">
+                <div class="stats">
+                    <div class="stat">
+                        <div class="big" id="streak">0🔥</div>
+                        <div class="sub">Streak</div>
+                    </div>
+                    <div class="stat">
+                        <div class="big" id="accuracy">0%</div>
+                        <div class="sub">Accuracy</div>
+                    </div>
+                    <div class="stat">
+                        <div class="big" id="played">0</div>
+                        <div class="sub">Questions</div>
+                    </div>
+                </div>
+
+                <div class="hint" id="hint">
+                    <div>Capital: <strong id="hintCapital">—</strong></div>
+                    <div>Continent: <strong id="hintContinent">—</strong></div>
+                </div>
+
+                <div style="display:grid; gap:10px;">
+                    <h3 style="margin:8px 0 0">How to play</h3>
+                    <ul style="margin:0 0 6px 18px; color:var(--muted);">
+                        <li>3 options per flag — click or press <span class="kbd">1</span>/<span
+                                class="kbd">2</span>/<span class="kbd">3</span></li>
+                        <li>Progress saves automatically to your browser</li>
+                        <li>Click review button to practice wrong answers</li>
+                        <li>Click review button again to resume main game</li>
+                    </ul>
+                </div>
+
+                <div class="footer">Data from <a class="brand" style="color:var(--brand)"
+                        href="https://restcountries.com" target="_blank" rel="noreferrer noopener">REST Countries</a>.
+                    Flags © respective holders. <br>By <a class="brand" style="color:var(--brand)"
+                        href="https://quodepalette.pages.dev" target="_blank" rel="noreferrer noopener">Quode
+                        Palette</a>.</div>
+            </aside>
+        </div>
+
+        <dialog id="reviewDialog">
+            <div class="modalInner">
+                <h3 style="margin:0">Review your mistakes</h3>
+                <div class="list" id="reviewList"></div>
+                <div style="display:flex; gap:10px; justify-content:flex-end;">
+                    <button class="btn secondary" id="btnCloseReview">Close</button>
+                    <button class="btn" id="btnPracticeWrong">Practice wrong ones</button>
+                    <button class="btn ghost" id="btnReturnMain" hidden>Return to Main Game</button>
+                </div>
+            </div>
+        </dialog>
+
+        <dialog id="resumeDialog">
+            <div class="modalInner">
+                <h3 style="margin:0 0 4px">Welcome back! 🎉</h3>
+                <p style="margin:0; color:var(--muted)">We found saved progress on this device. Want to continue where
+                    you left off?</p>
+                <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:8px;">
+                    <button class="btn secondary" id="btnNewRun">Start Over</button>
+                    <button class="btn" id="btnResume">Resume</button>
+                </div>
+            </div>
+        </dialog>
+    </div>
+
+    <div class="content">
+        <h1>How Many Countries Are There in the World?</h1>
+    </div> 
+    <div class="new-content">
+        <p> The United Nations has <span class="general-emphasis">193</span> member nations along with the recognition
+            of
+            two independent nations namely Vatican City and Palestine. </p>
+        
+        <p> When you include Taiwan and Kosovo, the total count becomes <span class="general-emphasis">197</span>. Some
+            individuals prefer to add regions like Western Sahara and Somaliland, which have uncertain or not
+            universally
+            recognized status, to round the number to <span class="general-emphasis">200</span>. The classification of
+            what
+            constitutes a "country" can vary depending on the criteria used. </p>
+    </div> 
+    <main>
+        <div class="content">
+            <h1>In Alphabetical Order</h1>
+        </div>
+        <div class="new-content">
+            <p> <span class="general-emphasis">A:</span> Afghanistan, Albania, Algeria, Andorra, Angola, Antigua and
+                Barbuda, Argentina, Armenia, Australia, Austria, Azerbaijan </p>
+            <p> <span class="general-emphasis">B:</span> Bahamas, Bahrain, Bangladesh, Barbados, Belarus, Belgium,
+                Belize,
+                Benin, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Burkina Faso,
+                Burundi
+            </p>
+            <p> <span class="general-emphasis">C:</span> Cambodia, Cameroon, Canada, Cape Verde, Central African
+                Republic,
+                Chad, Chile, China, Colombia, Comoros, Costa Rica, Croatia, Cuba, Cyprus, Czech Republic </p>
+            <p> <span class="general-emphasis">D:</span> Democratic Republic of Congo, Denmark, Djibouti, Dominica,
+                Dominican Republic </p>
+            <p> <span class="general-emphasis">E:</span> East Timor, Ecuador, Egypt, El Salvador, Equatorial Guinea,
+                Eritrea, Estonia, Eswatini, Ethiopia </p>
+            <p><span class="general-emphasis">F:</span> Fiji, Finland, France</p>
+            <p> <span class="general-emphasis">G:</span> Gabon, Gambia, Georgia, Germany, <span>Ghana</span>, Greece,
+                Grenada, Guatemala, Guinea-Conakry, Guinea-Bissau, Guyana </p>
+            <p> <span class="general-emphasis">H:</span> Haiti, Honduras, Hungary </p>
+            <p> <span class="general-emphasis">I:</span> Iceland, India, Indonesia, Iran, Iraq, Ireland, Israel, Italy,
+                Ivory Coast </p>
+            <p><span class="general-emphasis">J:</span> Jamaica, Japan, Jordan</p>
+            <p> <span class="general-emphasis">K:</span> Kazakhstan, Kenya, Kiribati, Korea, North, Korea, South,
+                Kosovo,
+                Kuwait, Kyrgyzstan </p>
+            <p> <span class="general-emphasis">L:</span> Laos, Latvia, Lebanon, Lesotho, Liberia, Libya, Liechtenstein,
+                Lithuania, Luxembourg </p>
+            <p> <span class="general-emphasis">M:</span> Madagascar, Malawi, Malaysia, Maldives, Mali, Malta, Marshall
+                Islands, Mauritania, Mauritius, Mexico, Micronesia, Moldova, Monaco, Mongolia, Montenegro, Morocco,
+                Mozambique, Myanmar </p>
+            <p> <span class="general-emphasis">N:</span> Namibia, Nauru, Nepal, Netherlands, New Zealand, Nicaragua,
+                Niger,
+                Nigeria, North Macedonia, Norway </p>
+            <p><span class="general-emphasis">O:</span> Oman</p>
+            <p> <span class="general-emphasis">P:</span> Pakistan, Palau, Palestine, Panama, Papua New Guinea, Paraguay,
+                Peru, Philippines, Poland, Portugal </p>
+            <p><span class="general-emphasis">Q:</span> Qatar</p>
+            <p> <span class="general-emphasis">R:</span> Republic of the Congo, Romania, Russia, Rwanda </p>
+            <p> <span class="general-emphasis">S:</span> Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the
+                Grenadines, Samoa, San Marino, São Tomé and Príncipe, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra
+                Leone, Singapore, Slovakia, Slovenia, Solomon Islands, Somalia, South Africa, South Sudan, Spain, Sri
+                Lanka,
+                Sudan, Suriname, Sweden, Switzerland, </p>
+            <p> <span class="general-emphasis">T:</span> Taiwan, Tajikistan, Tanzania, Thailand, Togo, Tonga, Trinidad
+                and
+                Tobago, Tunisia, Turkey, Turkmenistan, Tuvalu </p>
+            <p> <span class="general-emphasis">U:</span> Uganda, Ukraine, United Arab Emirates, United Kingdom, United
+                States, Uruguay, Uzbekistan </p>
+            <p> <span class="general-emphasis">V:</span> Vanuatu, Vatican City, Venezuela, Vietnam </p>
+            <p><span class="general-emphasis">Y:</span> Yemen</p>
+            <p><span class="general-emphasis">Z:</span> Zambia, Zimbabwe</p>
+        </div> 
+        <div class="content">
+            <h1>How Many Continents Are There in the World?</h1>
+        </div> 
+        <div class="new-content">
+            <p> A continent is a vast, uninterrupted expanse of land typically seen as a unified geographical area.
+                There
+                are a total of <span class="general-emphasis">seven(7)</span> continents, namely <span
+                    class="general-emphasis">Asia, Africa, North America, South America, Antarctica, Europe, and
+                    Australia</span>, listed in order of size from largest to smallest. On occasion, Europe and Asia are
+                combined into a single continent known as <span class="general-emphasis">Eurasia</span>. </p>
+
+                <p> Continents generally align with the locations of tectonic plates to some extent. There is significant
+                diversity in the sizes of continents. For instance, Asia surpasses Australia in size by more than
+                fivefold.
+                Greenland, the world's largest island, is approximately just a quarter of the size of Australia. The
+                continents exhibit distinct levels of compactness. Africa boasts the most uniform coastline, resulting
+                in
+                the lowest proportion of coastline relative to its total area. </p>
+
+                <p> In contrast, Europe stands out as the most irregular and indented continent, with by far the highest
+                ratio
+                of coastline compared to its total area. </p>
+
+                <p> There are <span class="general-emphasis">49</span> countries in <span
+                    class="general-emphasis">Asia</span>,
+                including several countries like Russia, Turkey, and Georgia, that are geographically located in both
+                Asia
+                and Europe, and are often considered part of Europe as well. </p>
+
+            <p> There are <span class="general-emphasis">54</span> countries in <span
+                    class="general-emphasis">Africa</span>, making it the continent with the highest number of
+                countries.
+            </p> 
+            <p> There are <span class="general-emphasis">23</span> countries in <span class="general-emphasis">North
+                    America</span>, including <span class="general-emphasis">7</span> countries that are part of <span
+                    class="general-emphasis">Central America</span>. </p>
+
+                    <p> There are <span class="general-emphasis">12</span> countries in <span class="general-emphasis">South
+                    America</span>, each with its own unique culture and history. </p>
+
+                    <p> There are <span class="general-emphasis">44</span> countries in <span
+                    class="general-emphasis">Europe</span>, including <span class="general-emphasis">27</span> countries
+                that are part of the <span class="general-emphasis">European Union</span>. </p>
+        </div>
+    </main>
+    </div>
+
+    <noscript style="display:block; max-width:760px; margin:20px auto; color:#222; font-family: system-ui;">
+        This game requires JavaScript. Please enable it to play.
+    </noscript>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="backToTopBtn" aria-hidden="true">
+        <span class="ripple-wrap"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 4l-7 8h5v8h4v-8h5z" />
+        </svg>
+    </button>
+
+
+        <!-- GLOBAL FOOTER -->
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <p>© <span id="year"></span> <a href="https://quodepalette.pages.dev" target="_blank"
+                        rel="noopener noreferrer">Quode Palette</a>. All rights reserved.</p>
+                <nav class="footer-nav">
+                    <a href="https://restcountries.com" target="_blank" rel="noopener noreferrer">REST Countries API</a>
+                    <a href="#app">Play Game</a>
+                </nav>
+            </div>
+        </footer>
+
+
+    <script src="js/scripts.js" defer></script>
+</body>
+
+</html>
